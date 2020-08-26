@@ -75,7 +75,6 @@ class QuestionAndAnswers extends React.Component {
     if (event.target.name === 'correct-answer' && this.state.clickedOnce === false) {
       player.player.assertions += 1;
       player.player.score += 10 + (timer * difficulty);
-
     }
 
     this.setState({
@@ -97,8 +96,7 @@ class QuestionAndAnswers extends React.Component {
       <div className="game">
         {questions[index] && (
           <div className="questions">
-                    <Timer intervalo={interval} />
-
+            <Timer intervalo={interval} />
             <h3 data-testid="question-text" className="question">{questions[index].question}</h3>
             <p data-testid="question-category">{questions[index].category}</p>
             {questions[index].answer.map((answer) => (

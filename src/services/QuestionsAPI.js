@@ -1,8 +1,9 @@
+import React, { useState } from 'react';
 import fetchToken from './TokenAPI';
 import randomAnswers from './randomArray';
 import decodeEntities from './DecodeEntities';
 
-const QUESTIONS_URL = 'https://opentdb.com/api.php?amount=5&token=';
+const QUESTIONS_URL = 'https://opentdb.com/api.php?amount=5';
 
 function answers(questions) {
   const allQuestionsRandomized = questions.map((question) => {
@@ -35,9 +36,9 @@ function answers(questions) {
   return allQuestionsRandomized;
 }
 
-function fetchQuestions() {
+function fetchQuestions({ category, difficulty, type }) {
   return fetchToken().then((token) =>
-    fetch(QUESTIONS_URL + token)
+    fetch(`${QUESTIONS_URL}&category=${category}&difficulty=${difficulty}&type=${type}&token=${token}`)
       .then((response) => response.json())
       .then((data) => answers(data.results)),
   );

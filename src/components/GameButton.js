@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchAndAddQuestions } from '../action';
 
 export default function GameButton({ isAvailable, click }) {
   const dispatch = useDispatch();
+  const settings = useSelector(state => state.settingsReducer);
+  console.log(settings);
   return (
     <div className="btn-block">
       <Link to="/game">
@@ -13,7 +15,7 @@ export default function GameButton({ isAvailable, click }) {
           data-testid="btn-play"
           disabled={isAvailable}
           onClick={() => {
-            dispatch(fetchAndAddQuestions());
+            dispatch(fetchAndAddQuestions(settings));
             click();
           }}
           className="

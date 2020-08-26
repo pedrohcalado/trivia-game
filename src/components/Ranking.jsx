@@ -8,7 +8,7 @@ const Ranking = () => {
   console.log(ranking);
   return (
     <div className="Game-divE">
-            <Link to="/">
+      <Link to="/">
         <button data-testid="btn-go-home" className="btn btn-block btn-success">
           Go home
         </button>

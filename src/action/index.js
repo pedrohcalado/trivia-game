@@ -6,6 +6,24 @@ export const ADD_USER = 'ADD_USER';
 export const SET_TIMER = 'SET_TIMER';
 export const IS_DISABLED = 'IS_DISABLED';
 export const ADD_SCORE = 'ADD_SCORE';
+export const CHANGE_SETTINGS = 'CHANGE_SETTINGS';
+
+export function fetchAndAddQuestions(settings) {
+  return (dispatch) => {
+    dispatch(isRequesting());
+    return fetchQuestions(settings).then((questions) =>
+      dispatch(addQuestions(questions)),
+    );
+  };
+}
+
+export function changeSettings(name, value) {
+  return {
+    type: CHANGE_SETTINGS,
+    name,
+    value,
+  };
+}
 
 export function disableButton(disabled) {
   return {
@@ -44,12 +62,3 @@ const addQuestions = (questions) => ({
   type: ADD_QUESTION,
   questions,
 });
-
-export function fetchAndAddQuestions() {
-  return (dispatch) => {
-    dispatch(isRequesting());
-    return fetchQuestions().then((questions) =>
-      dispatch(addQuestions(questions)),
-    );
-  };
-}
