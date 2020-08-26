@@ -5,7 +5,6 @@ import ConfigButton from './ConfigButton';
 import GameButton from './GameButton';
 import { addUser } from '../action';
 
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -49,6 +48,7 @@ class Login extends React.Component {
             className="form-control ml-1"
           />
         </div>
+        {/* 1 */}
         <GameButton click={() => addUserProps(this.state)} isAvailable={this.isAvailable()} />
         <ConfigButton />
       </div>

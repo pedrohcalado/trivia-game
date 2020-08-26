@@ -7,13 +7,27 @@ export const SET_TIMER = 'SET_TIMER';
 export const IS_DISABLED = 'IS_DISABLED';
 export const ADD_SCORE = 'ADD_SCORE';
 export const CHANGE_SETTINGS = 'CHANGE_SETTINGS';
+export const ADD_ERROR = 'ADD_ERROR';
 
 export function fetchAndAddQuestions(settings) {
   return (dispatch) => {
     dispatch(isRequesting());
     return fetchQuestions(settings).then((questions) =>
       dispatch(addQuestions(questions)),
+      (error) => dispatch(addError(error)),
     );
+  };
+}
+
+const addQuestions = (questions) => ({
+  type: ADD_QUESTION,
+  questions,
+});
+
+export function addError(error) {
+  return {
+    type: ADD_ERROR,
+    error,
   };
 }
 
@@ -56,9 +70,4 @@ export function addUser({ name, email }) {
 
 const isRequesting = () => ({
   type: IS_REQUESTING,
-});
-
-const addQuestions = (questions) => ({
-  type: ADD_QUESTION,
-  questions,
 });

@@ -5,7 +5,6 @@ const Ranking = () => {
   const ranking = JSON.parse(localStorage.getItem('ranking')).sort(
     (a, b) => b.score - a.score,
   );
-  console.log(ranking);
   return (
     <div className="Game-divE">
       <Link to="/">
@@ -13,9 +12,7 @@ const Ranking = () => {
           Go home
         </button>
       </Link>
-      
       <div data-testid="ranking-title" >
-
         {ranking.map((player, i) => (
           <div className="Game-header">
             <img src={player.picture} alt="player" />

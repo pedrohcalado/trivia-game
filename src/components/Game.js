@@ -33,10 +33,16 @@ class Game extends React.Component {
   render() {
     console.log('score');
     return (
-      <div className="Game-div">
-        {this.header()}
-        <QuestionAndAnswers />
-        <ConfigButton />
+      <div>
+        {this.props.error.length > 1 ? 
+        <div className="Game-div">
+          {this.header()}
+          <QuestionAndAnswers />
+          <ConfigButton />
+        </div> :
+        <h1>{this.props.error[0]}</h1>
+        }
+        
       </div>
     );
   }
@@ -52,6 +58,7 @@ const mapStateToProps = (state) => ({
   player: state.userReducer.name,
   hash: state.userReducer.hash,
   score: state.userReducer.score,
+  error: state.questionsReducer,
 });
 
 export default connect(mapStateToProps)(Game);
