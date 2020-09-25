@@ -33,9 +33,9 @@ class Game extends React.Component {
   render() {
     console.log('score');
     return (
-      <div>
+      <div className="Game-div">
         {this.props.error.length > 1 ? 
-        <div className="Game-div">
+        <div>
           {this.header()}
           <QuestionAndAnswers />
           <ConfigButton />

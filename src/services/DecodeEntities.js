@@ -4,4 +4,4 @@ export default function decodeEntities(encodedString) {
   return txt.value;
 }
 
-// Função criada por Rafael Quinteiro (t05) para decodificar entidade do HTML, por que o react não tá decodando, misteriosamente 
+// Função indicada por Rafael Quinteiro (t05) para decodificar entidade do HTML, por que o react não tá decodando, misteriosamente 

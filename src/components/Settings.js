@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeSettings } from '../action';
 
-
-
 export default function Settings() {
   const dispatch = useDispatch();
   return (
